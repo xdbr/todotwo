@@ -1,0 +1,24 @@
+div(ng-include="'partials/navbar.html'")
+
+.jumbotron.text-center
+  h1 TodoTwo 
+    span.label.label-info {{todos.length}}
+
+.row#todo-list
+  .col-sm-4.col-sm-offset-4
+    ul(ng-repeat='todo in todos')
+      li: {{todo.text}} 
+        input(type='checkbox', ng-click='deleteTodo(todo._id)')
+      //- form
+      //-   input: {{todo.text}}
+      //
+       label
+
+.row#todo-form
+  .col-sm-8.col-sm-offset-2.text-center
+    form(name='formTodo')
+      .form-group
+        input.form-control.input-lg.text-center(type='text', ng-model='formData.text', required, placeholder='Some placeholder')
+        button.btn.btn-primary.btn-lg(type='submit', ng-click='createTodo()', ng-disabled='formTodo.$invalid') Add
+.footer
+  p ♥ from the Yeoman team
